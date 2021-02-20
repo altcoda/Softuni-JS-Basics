@@ -2,47 +2,48 @@ function skiTrip(input) {
     let days = parseInt(input[0]);
     let aptType = input[1];
     let rating = input[2];
-    let aptTypes = ["room for one person", "apartment", "president apartment"];
+
     let stayLength = [days < 10, days >= 10 && days <= 15, days > 15];
-    let positiveRating = rating == "positive";
-    let nightPrice, price, discount, totalPrice, tip;
+    let nightPrice = 0.0, price = 0.0, discount = 0.0, totalPrice = 0.0, tip = 0.0;
   
-    if (aptType == aptTypes[0]) {
-      nightPrice = 18.0;
-      totalPrice = nightPrice * (days - 1);
-    } else if (aptType == aptTypes[1]) {
+    switch(aptType) {
+      case "room for one person":
+        nightPrice = 18.0;
+        totalPrice = nightPrice * (days - 1);
+        break;
+      case "apartment":
+        nightPrice = 25.0;
+        price = nightPrice * (days - 1);
   
-      nightPrice = 25.0;
-      price = nightPrice * (days - 1);
+        if (stayLength[0]) {
+          discount = (30 / 100) * price;
+        } else if (stayLength[1]) {
+          discount = (35 / 100) * price;
+        } else if (stayLength[2]) {
+          discount = (50 / 100) * price;
+        }
+        
+        totalPrice = price - discount;
+        break;
+      case "president apartment":
+        nightPrice = 35.0;
+        price = nightPrice * (days - 1);
   
-      if (stayLength[0]) {
-        discount = (30 / 100) * price;
-      } else if (stayLength[1]) {
-        discount = (35 / 100) * price;
-      } else if (stayLength[2]) {
-        discount = (50 / 100) * price;
-      }
+        if (stayLength[0]) {
+          discount = (10 / 100) * price;
+        } else if (stayLength[1]) {
+          discount = (15 / 100) * price;
+        } else if (stayLength[2]) {
+          discount = (20 / 100) * price;
+        }
   
-      totalPrice = price - discount;
-  
-    } else if (aptType == aptTypes[2]) {
-  
-      nightPrice = 35.0;
-      price = nightPrice * (days - 1);
-  
-      if (stayLength[0]) {
-        discount = (10 / 100) * price;
-      } else if (stayLength[1]) {
-        discount = (15 / 100) * price;
-      } else if (stayLength[2]) {
-        discount = (20 / 100) * price;
-      }
-  
-      totalPrice = price - discount;
-  
+        totalPrice = price - discount;
+        break;
+      default:
+        break;
     }
   
-    if (positiveRating) {
+    if (rating == "positive") {
       tip = (25 / 100) * totalPrice;
       totalPrice += tip;
     } else {
