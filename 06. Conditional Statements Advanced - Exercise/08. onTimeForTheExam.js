@@ -1,17 +1,16 @@
 function onTimeForTheExam(input) {
-let hoursExam = Number(input[0]);
+  let hoursExam = Number(input[0]);
   let minsExam = Number(input[1]);
   let arrivalHours = Number(input[2]);
   let arrivalMins = Number(input[3]);
   
   let examTimeInMins = hoursExam * 60 + minsExam;
   let arrivalTimeInMins = arrivalHours * 60 + arrivalMins;
-  let late = arrivalTimeInMins > examTimeInMins;
   
   let diff = 0, hours = 0, mins = 0;
   if(examTimeInMins == arrivalTimeInMins) {
   	console.log(`On time`);
-  } else if(late) {
+  } else if(arrivalTimeInMins > examTimeInMins) { // If late
     diff = arrivalTimeInMins - examTimeInMins;
     
   	if(diff < 60) {
