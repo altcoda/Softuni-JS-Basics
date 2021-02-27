@@ -2,7 +2,7 @@ function hotelRoom(input) {
   let month = input[0];
   let nights = parseInt(input[1]);
 
-  let studioPct = 0, aptPct = 0, studioPrice = 0.0, aptPrice = 0.0;
+  let studioPct = 0, aptPct = 0, studioPrice = 0.0, aptPrice = 0.0; // Pct is discount percentage
 
   switch (month) {
     case "May":
