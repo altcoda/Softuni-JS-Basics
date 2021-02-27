@@ -1,22 +1,17 @@
 function hotelRoom(input) {
   let month = input[0];
   let nights = parseInt(input[1]);
-  let mediumStay = nights > 7;
-  let longStay = nights > 14;
 
-  let studioPct = 0;
-  let aptPct = 0;
-  let studioPrice = 0.0;
-  let aptPrice = 0.0;
+  let studioPct = 0, aptPct = 0, studioPrice = 0.0, aptPrice = 0.0;
 
   switch (month) {
     case "May":
     case "October":
       studioPrice = 50;
       aptPrice = 65;
-      if (longStay) {
+      if (nights > 14) {
         studioPct += 30
-      } else if (mediumStay) {
+      } else if (nights > 7) {
         studioPct += 5
       }
       break;
@@ -24,7 +19,7 @@ function hotelRoom(input) {
     case "September":
       studioPrice = 75.20;
       aptPrice = 68.70;
-      if (longStay) {
+      if (nights > 14) {
         studioPct += 20
       }
       break;
@@ -37,12 +32,13 @@ function hotelRoom(input) {
       break;
   }
 
-  if (longStay) {
+  if (nights > 14) {
     aptPct += 10
   }
-
+ 
   studioPrice *= nights;
   aptPrice *= nights;
+  // Substract discount
   studioPrice -= (studioPct / 100) * studioPrice;
   aptPrice -= (aptPct / 100) * aptPrice;
 
