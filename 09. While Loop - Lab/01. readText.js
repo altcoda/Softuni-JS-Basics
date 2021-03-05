@@ -1,7 +1,6 @@
 function readText(input) {
 
     let i = 0, text = '';
-    
     while (text != "Stop") {
       text = input[i];
       i++;
@@ -9,5 +8,4 @@ function readText(input) {
         console.log(text)
       }
     }
-  
 }

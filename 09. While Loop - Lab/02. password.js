@@ -10,5 +10,4 @@ function password(input) {
   }
   
   console.log(`Welcome ${username}!`);
-
 }

@@ -1,13 +1,11 @@
 function minNumber(input) {
     let n = Number(input[0]);
   
-    let num = 0, arr = [];
+    let num = 0, numArr = [];
     for (let i = 1; i <= n; i++) {
       num = input[i];
-      arr.push(num);
+      numArr.push(num);
     }
     
-    let minimum = Math.min(...arr);
-    console.log(minimum);
-  
+    console.log(Math.min(...numArr));
 }

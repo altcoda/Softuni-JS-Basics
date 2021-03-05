@@ -9,5 +9,4 @@ function sequence(input) {
     }
     
     console.log(arr.join('\n'))
-  
 }

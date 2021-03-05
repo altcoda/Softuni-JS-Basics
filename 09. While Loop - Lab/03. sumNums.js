@@ -10,5 +10,4 @@ function sumNums(input) {
         console.log(sum)
       }
     }
-  
 }
