@@ -1,12 +1,13 @@
 function examPreparation(input) {
-    let limit = parseInt(input[0]);
+    let index = 0;
+    let limit = parseInt(input[index++]);
   
-    let exc = '', grade = 0.0, i = 1, n = 2;
+    let exc = '', grade = 0.0;
     let badGrades = [], sum = 0, lastExc = '', numProblems = 0;
     
     while (exc != "Enough") {
-      exc = input[i];
-      grade = Number(input[n]);
+      exc = input[index++];
+      grade = Number(input[index++]);
   
       if (grade <= 4) { badGrades.push(grade) }
   
@@ -23,7 +24,7 @@ function examPreparation(input) {
       
       lastExc = exc;
       sum += grade;
-      i+=2; n+=2; numProblems++;
+      numProblems++;
     }
   
 }

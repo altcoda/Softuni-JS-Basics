@@ -1,13 +1,13 @@
 function vacation(input) {
-    let vacationCost = parseFloat(input[0]);
-    let wallet = parseFloat(input[1]);
+    let index = 0;
+    let vacationCost = parseFloat(input[index++]);
+    let wallet = parseFloat(input[index++]);
   
     let action = '', actions = [], sum = 0, counter = 0;
-    let i = 2, n = 3;
     
     while (wallet <= vacationCost) {
-      action = input[i];
-      sum = parseFloat(input[n]);
+      action = input[index++];
+      sum = parseFloat(input[index++]);
       counter++;
       
       if(action == "spend" && sum >= wallet) { wallet = 0; }
@@ -26,7 +26,5 @@ function vacation(input) {
           console.log(`You saved the money for ${counter} days.`);
         break;
       }
-      
-      i+=2; n+=2;
     }
 }

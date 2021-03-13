@@ -1,0 +1,2 @@
+function movieTickets(input) {
+}
