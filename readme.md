@@ -1,4 +1,4 @@
-<center>
+<div align="center">
 
 # Javascript Basics February 2021
 
@@ -15,4 +15,4 @@ This repo includes all homework and exercises I did for this course.
 ### Loops - part 2<br/>
 ### Nested Loops<br/>
 
-</center>
+</div>
